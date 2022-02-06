@@ -161,6 +161,10 @@ class _OverlayBuilderState extends State<OverlayBuilder> {
   bool isShowingOverlay() => _overlayEntry != null;
 
   void showOverlay() {
+    if (!mounted) {
+      return;
+    }
+
     if (_overlayEntry == null) {
       // Create the overlay.
       _overlayEntry = OverlayEntry(
